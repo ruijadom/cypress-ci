@@ -3,16 +3,32 @@ name: Cypress Tests
 on: [push]
 
 jobs:
-  cypress-run:
+  end_to_end_tests:
+    name: End to end Tests
     runs-on: ubuntu-latest
+    needs: setup
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
+
+      - name: Cache Dependencies
+        uses: ./.github/actions/cache-dependencies
+
+      - name: Cache Environment Definitions
+        uses: ./.github/actions/cache-env
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
           start: npm run cy:run
+          wait-on: "http://localhost:3001"
           browser: chrome
           parallel: true
