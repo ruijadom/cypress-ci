@@ -13,5 +13,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          build: npm run build
-          start: npm start
+          start: npm run test:e2e:ci
+          wait-on: "http://localhost:3001"
+          browser: chrome
+          parallel: true
