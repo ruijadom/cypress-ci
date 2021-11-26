@@ -1,46 +1,15 @@
 {
-  "name": "cypress-ci",
+  "name": "cypress-gh-action-monorepo",
   "version": "1.0.0",
+  "description": "Example running Cypress e2e tests using GitHub Action inside a monorepo",
+  "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=3001 npx serve",
-    "start": "webpack serve --open --mode development",
-    "start:live": "webpack serve --open --mode development --live-reload --hot",
-    "e2e:open": "cypress open --config-file e2e/cypress.json --project test",
-    "e2e:run": "cypress run --config-file e2e/cypress.json --project test",
-    "e2e:ci": "start-server-and-test start 3001 e2e:run"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write 'e2e/**/*.js'"
   },
   "license": "MIT",
-  "author": {
-    "name": "Jack Herrington",
-    "email": "jherr@pobox.com"
-  },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/plugin-transform-runtime": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
-    "autoprefixer": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^6.3.0",
     "cypress": "^9.1.0",
-    "html-webpack-plugin": "^5.3.2",
-    "postcss": "^8.2.1",
-    "postcss-loader": "^4.1.0",
-    "start-server-and-test": "^1.14.0",
-    "style-loader": "^3.3.0",
-    "tailwindcss": "^2.0.2",
-    "typescript": "^4.5.2",
-    "webpack": "^5.57.1",
-    "webpack-cli": "^4.9.0",
-    "webpack-dev-server": "^4.3.1"
-  },
-  "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "prettier": "2.1.2"
   }
 }
