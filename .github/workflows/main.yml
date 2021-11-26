@@ -14,12 +14,9 @@ jobs:
         with:
           runTests: false
       # report machine parameters
-      - run: yarn cypress info
+      - run: npm run cypress info
       - run: node -p 'os.cpus()'
-      - run: yarn types
-      - run: yarn lint
-      - run: yarn test:unit:ci
-      - run: yarn build:ci
+      - run: npm run build
 
       - name: Save build folder
         uses: actions/upload-artifact@v2
@@ -55,7 +52,7 @@ jobs:
       - name: "UI Tests - Chrome"
         uses: cypress-io/github-action@v2
         with:
-          start: yarn start
+          start: npm run start
           wait-on: "http://localhost:3001"
           wait-on-timeout: 120
           browser: chrome
