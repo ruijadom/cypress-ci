@@ -2,18 +2,23 @@ name: Generate Cypress Report
 on: [push]
 
 jobs:
-  build:
+  end_to_end_tests:
+    name: End to end Tests
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
+    needs: setup
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress install
+        uses: cypress-io/github-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run int-test
+          runTests: false
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run int-test
+          wait-on: "http://localhost:3001"
+          browser: chrome
+          parallel: true
