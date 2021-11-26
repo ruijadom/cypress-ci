@@ -5,16 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Install dependencies
+      - name: Install root dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Start server in the background
+        run: npm start &
+
+      # Cypress has its own package.json in folder "e2e"
+      - name: Install Cypress and run tests
         uses: cypress-io/github-action@v1
         with:
-          # just perform install
-          runTests: false
-      - run: yarn lint
-      - name: Run e2e tests
-        uses: cypress-io/github-action@v1
-        with:
-          # we have already installed all dependencies above
-          install: false
-          # Cypress tests and config file are in "e2e" folder
           working-directory: e2e

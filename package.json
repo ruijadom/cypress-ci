@@ -1,15 +1,26 @@
 {
-  "name": "cypress-gh-action-monorepo",
+  "name": "cypress-gh-action-subfolders",
   "version": "1.0.0",
-  "description": "Example running Cypress e2e tests using GitHub Action inside a monorepo",
+  "description": "Example using Cypress GitHub Action when Cypress is installed in a subfolder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier --write 'e2e/**/*.js'"
+    "lint": "prettier --write 'e2e/**/*.js'",
+    "start": "http-server -c-1 -p 4700 public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/cypress-gh-action-subfolders.git"
+  },
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/cypress-gh-action-subfolders/issues"
+  },
+  "homepage": "https://github.com/bahmutov/cypress-gh-action-subfolders#readme",
   "devDependencies": {
-    "cypress": "^9.1.0",
     "prettier": "2.1.2"
+  },
+  "dependencies": {
+    "http-server": "0.12.3"
   }
 }
