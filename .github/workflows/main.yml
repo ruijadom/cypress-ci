@@ -11,15 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cache Dependencies
-        uses: ./.github/actions/cache-dependencies
-
-      - name: Cache Environment Definitions
-        uses: ./.github/actions/cache-env
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
       - name: Cypress install
         uses: cypress-io/github-action@v2
         with:
