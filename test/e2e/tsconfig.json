@@ -1,0 +1,13 @@
+{
+  "include": ["../../node_modules/cypress", "./**/*.ts"],
+  "exclude": [],
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es5", "dom"],
+    "types": ["cypress"]
+  }
+}
