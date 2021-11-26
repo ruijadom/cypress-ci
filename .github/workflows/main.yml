@@ -2,22 +2,14 @@ name: Generate Cypress Report
 on: [push]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm install
-      - run: npm run e2e:ci
-        with:
-          config-file: ../tests/e2e/cypress.json
-          start: npm run test:e2e:ci
-          browser: chrome
+          config-file: tests/e2e/cypress.json
