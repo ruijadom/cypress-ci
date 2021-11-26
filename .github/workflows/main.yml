@@ -17,3 +17,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run e2e:ci
+        with:
+          config-file: ../tests/e2e/cypress.json
+          start: npm run test:e2e:ci
+          browser: chrome
