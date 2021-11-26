@@ -1,2 +1,3 @@
 # cypress-ci
-Application with continuous integration for Cypress
+
+Application with continuous integration
