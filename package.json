@@ -9,7 +9,7 @@
     "start:live": "webpack serve --open --mode development --live-reload --hot",
     "cy:open": "cypress open --config-file e2e/cypress.json --project test",
     "cy:run": "cypress run --config-file e2e/cypress.json --project test --browser chrome",
-    "test:e2e:ci": "cross-env NODE_ENV=test-e2e start-server-and-test start http://localhost:3001/ cy:run"
+    "test:e2e:ci": "cross-env NODE_ENV=test-e2e start-server-and-test start https-get://localhost:3001 cy:run"
   },
   "license": "MIT",
   "author": {
